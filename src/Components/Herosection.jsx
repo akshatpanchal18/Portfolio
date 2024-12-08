@@ -35,7 +35,7 @@ function Herosection() {
               <Link className="btn">
                 Get in Touch
                 <span>
-                  <FaArrowRight />
+                  <FaArrowRight className="arrow" />
                 </span>
               </Link>
             </div>
@@ -94,43 +94,40 @@ const Wraper = styled.section`
     color: white;
   }
   .btn {
+    border: none;
+    outline: none;
     display: inline-flex;
     align-items: center;
     padding: 0.5rem 1rem;
-    background: white;
-    // background:#5000ca;
+    background: #fff;
     font-weight: bold;
     color: #5000ca;
-    // color: #fff;
     text-decoration: none;
     border-radius: 50px;
   }
   .btn:hover {
-    background: #5000ca;
-    // background: #fff;
-    // border:2px solid #5000ca;
-    border: 2px solid white;
+    background:#5000ca;
+    border: 2px solid #fff;
     transition: background 0.2s ease-in;
-    // color:#5000ca;
-    color: white;
+    color: #fff;
   }
+span .arrow{
+position: relative;
+    bottom: 0px;
 
+}
   .btn span {
     margin-left: 1rem;
-    padding: 1rem;
+    padding:1rem 1rem;
     font-size: 1rem;
-    // color:#5000ca;
-    color: white;
+    color: #fff;
     width: 50px;
     border-radius: 50%;
     background-color: #5000ca;
-    // background-color:#fff;
   }
   .btn:hover span {
-    background: white;
-    // background:#5000ca;
+    background: #fff;
     color: #5000ca;
-    // color:#fff ;
     transition: transform 0.2s ease-in;
     transform: translateX(8px);
   }
