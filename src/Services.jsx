@@ -1,6 +1,6 @@
 import React from 'react'
 import ServiceA from './Components/ServiceA'
-import ServiceB from './Components/Serviceb'
+import ServiceB from './Components/ServiceB'
 import ServiceC from './Components/ServiceC'
 import ServiceHeader from './Components/ServiceHeader'
 import styled from 'styled-components'
