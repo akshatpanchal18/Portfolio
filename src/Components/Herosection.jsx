@@ -32,12 +32,7 @@ function Herosection() {
               <FaArrowRight />
             </span>
           </Link> */}
-              <Link
-                className="btn"
-                to="/aboutme"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link className="btn">
                 Get in Touch
                 <span>
                   <FaArrowRight />
