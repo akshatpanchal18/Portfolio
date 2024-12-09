@@ -95,7 +95,7 @@ function AboutMe() {
       <p className="date">Issued by C-dac Academy, March 2021</p>
     </li>
     <li>
-      <h3>RunnerUp of Web Hackathon by L.D Engineering</h3>
+      <h3>RunnerUp of Web-o-thon by L.D Engineering</h3>
       <p className="date">Secured 2nd place, October 2023</p>
     </li>
   </ul>
@@ -220,7 +220,11 @@ body {
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #f5f5f5;
+  transition : ease-in 0.1s;
 }
+  .project:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
 
 .project h3 {
   font-size: 18px;
@@ -243,7 +247,9 @@ body {
   border-radius: 5px;
   font-size: 14px;
 }
-
+.skill:hover{
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
 /* Button */
 .button {
   display: inline-block;
