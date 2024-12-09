@@ -7,7 +7,6 @@ function PortHeader() {
       <Wraper>
         <div className="test-section">
           <h2>Letest Work</h2>
-          <img className="img" src="src\assets\man.svg" alt="" />
           <DividerWrapper>
             <HorizontalLine />
             <CenterSquare />
