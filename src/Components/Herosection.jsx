@@ -22,8 +22,7 @@ function Herosection() {
                 Web Developing, blending innovative solutions with a keen eye
                 for detail. Passionate about web-developing, I thrive on
                 delivering impactful projects that drive success and growth.
-                Let’s connect and bring ideas to life!{" "}
-                <a href="/aboutme">More...</a>
+                Let’s connect and bring ideas to life!
               </p>
 
               {/* <Link className="btn">
