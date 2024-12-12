@@ -59,7 +59,7 @@ function Footer() {
     </div>
     </div>
     <div>
-    <Button href="/Akshat Resume.pdf" download>
+    <Button href="/Akshat Panchal.pdf" download>
       Download Resume
   </Button>
     </div>
