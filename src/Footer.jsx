@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { FaFacebook,FaInstagram,FaGithub,FaTwitter,FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { FaFacebook,FaInstagram,FaGithub,FaTwitter,FaLinkedin, FaWhatsapp ,FaEnvelope} from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
 import { MdAttachEmail } from "react-icons/md";
 import { FaMapLocationDot } from "react-icons/fa6";
@@ -55,6 +55,7 @@ function Footer() {
       <a href="#" target='_blanck'><FaWhatsapp  className='icon'/></a> 
       <a href="https://github.com/akshatpanchal18" target='_blanck'><FaGithub className='icon'/></a>
       <a href="http://www.linkedin.com/in/akshat-panchal08" target='_blanck'><FaLinkedin className='icon'/></a>
+      <a href="akshatpanchal08@gmail.com" target='_blanck'><FaEnvelope className='icon'/></a>
       {/* <a href="#" target='_blanck'><FaTwitter className='icon'/></a> */}
     </div>
     </div>
