@@ -9,3 +9,16 @@
 body, html {
   overflow-x: hidden;
 }
+&::-webkit-scrollbar {
+  height: 8px;
+}
+
+&::-webkit-scrollbar-thumb {
+  background: #5000ca;
+  border-radius: 10px;
+}
+
+&::-webkit-scrollbar-track {
+  /* background: #f0f0f0; */
+  background: #a38ec2;
+}
