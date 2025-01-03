@@ -43,9 +43,13 @@ function ServiceC() {
             </div>
             <h1 data-aos="fade-up">Web Hosting</h1>
             <p data-aos="fade-up" data-aos-delay="200">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
-              impedit rem, doloremque autem quibusdam blanditiis harum alias hic
-              accusantium maxime atque ratione magni repellat?
+              Web hosting is the backbone of any online presence, providing the
+              storage, bandwidth, and infrastructure needed to make your website
+              accessible to users worldwide. With reliable hosting, you ensure
+              fast load times, secure connections, and 24/7 availability for
+              your audience. Choosing the right hosting plan—whether shared,
+              VPS, or dedicated—can significantly impact your site's performance
+              and scalability.
             </p>
             <button className="btn">
               Learn More

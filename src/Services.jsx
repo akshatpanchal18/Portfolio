@@ -10,9 +10,9 @@ function Services() {
     <>
       <div>
         <ServiceHeader />
-        <ServiceA />
         <ServiceB />
         <ServiceC />
+        <ServiceA />
         <Wraper>
           {/* <img className="svg" src="src\assets\wave.svg" alt="" /> */}
           <svg

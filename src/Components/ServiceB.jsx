@@ -45,11 +45,15 @@ function ServiceB() {
                 </g>
               </svg>
             </div>
-            <h1 data-aos="fade-up">Web Developing</h1>
+            <h1 data-aos="fade-up">Web Development</h1>
             <p data-aos="fade-up" data-aos-delay="200">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
-              impedit rem, doloremque autem quibusdam blanditiis harum alias hic
-              accusantium maxime atque ratione magni repellat?
+              Web development is the process of building and maintaining
+              websites, combining creativity and technical expertise to create
+              user-friendly online experiences. From responsive design and
+              seamless navigation to robust back-end functionality, web
+              development ensures your site meets modern standards. Whether
+              you're creating a personal blog or a complex e-commerce platform,
+              skilled web development brings your vision to life.
             </p>
             {/* <button className="btn" data-aos="fade-up" data-aos-delay="400"> */}
             <button className="btn">

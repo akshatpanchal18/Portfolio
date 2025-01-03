@@ -27,10 +27,10 @@ function Work() {
       
       <div className="card" data-aos="fade-up" data-aos-delay="200">
         <div className="card-image" style={{ backgroundImage: `url(/ecom2.jpg)` }}></div>
-        <a href="https://mystore-xyz.netlify.app/" target="_blank" rel="noopener noreferrer">
+        <a href="https://e-commerce-ui-5bol.onrender.com" target="_blank" rel="noopener noreferrer">
           <div className="card-info">
-            <h3 className="card-title">My-Store</h3>
-            <p className="card-category">E-commerce</p>
+            <h3 className="card-title">EchoBazaar</h3>
+            <p className="card-category">Full-Stake E-commerce</p>
           </div>
         </a>
       </div>

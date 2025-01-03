@@ -44,9 +44,12 @@ const ServiceA = () => {
             </div>
             <h1 data-aos="fade-up">Content Writing</h1>
             <p data-aos="fade-up" data-aos-delay="200">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
-              impedit rem, doloremque autem quibusdam blanditiis harum alias hic
-              accusantium maxime atque ratione magni repellat?
+              Content writing is the art of creating engaging, informative, and
+              persuasive text tailored to your audience. Whether it’s for blogs,
+              websites, or marketing campaigns, good content captivates readers,
+              builds trust, and delivers value. With the right tone, style, and
+              focus on quality, content writing helps brands connect with their
+              audience and drive meaningful engagement.
             </p>
             <button className="btn">
               Learn More
