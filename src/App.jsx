@@ -9,11 +9,18 @@ import ScrollToTopButton from "./Components/ScrollToTop"
 import Footer from "./Footer"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import AboutMe from "./Components/AboutMe"
+import DetailsB from "./Components/DetailsB"
+import DetailsC from "./Components/DetailsC"
+import DetailsA from "./Components/DetailsA"
+import NotFound from "./Components/NotFound"
 
 function App() {
   return (
     <>
       <Navbar /> 
+      <Routes>
+  <Route path="/" element={
+    <>
       <section id="home">
         <Home />
       </section>
@@ -29,12 +36,15 @@ function App() {
       <section id="contact">
         <Contact />
       </section>
-      {/* <section id="aboutme">
-        <AboutMe />
-      </section> */}
-      {/* <Routes>
-        <Route path="#aboutme" element={<AboutMe />} />
-      </Routes> */}
+    </>
+  } />
+  <Route path="/about-me" element={<AboutMe/>} />
+  <Route path="/content-writting" element={<DetailsA/>} />
+  <Route path="/web-devlopment" element={<DetailsB/>} />
+  <Route path="/web-hosting" element={<DetailsC/>} />
+  <Route path="*" element={<NotFound/>} />
+</Routes>
+
       <ScrollToTopButton/>
       <Footer/>
       

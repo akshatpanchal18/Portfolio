@@ -23,7 +23,7 @@ function Footer() {
     <div className="contact-item">
       <IoCall className="contact-icon"/>
       <div>
-        <p className="contact-text">+1 728365413</p>
+        <p className="contact-text">+91 9879941640</p>
         <p className="contact-subtext">Mon-Fri 9am-6pm</p>
       </div>
     </div>
@@ -52,10 +52,10 @@ function Footer() {
     <div className="social-icons">
       {/* <a href="#" target='_blanck'><FaFacebook className='icon'/></a>
       <a href="#" target='_blanck'><FaInstagram className='icon'/></a> */}
-      <a href="#" target='_blanck'><FaWhatsapp  className='icon'/></a> 
+      {/* <a href="#" target='_blanck'><FaWhatsapp  className='icon'/></a>  */}
       <a href="https://github.com/akshatpanchal18" target='_blanck'><FaGithub className='icon'/></a>
       <a href="http://www.linkedin.com/in/akshat-panchal08" target='_blanck'><FaLinkedin className='icon'/></a>
-      <a href="akshatpanchal08@gmail.com" target='_blanck'><FaEnvelope className='icon'/></a>
+      <a href="mailto:akshatpanchal08@gmail.com?subject=Hello&body=Hi Akshat," target='_blanck'><FaEnvelope className='icon'/></a>
       {/* <a href="#" target='_blanck'><FaTwitter className='icon'/></a> */}
     </div>
     </div>

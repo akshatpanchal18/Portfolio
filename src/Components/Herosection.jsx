@@ -25,18 +25,18 @@ function Herosection() {
                 Let’s connect and bring ideas to life!
               </p>
 
-              {/* <Link className="btn">
+              <NavLink to='/about-me' className="btn">
             Get in Touch
             <span>
-              <FaArrowRight />
+              <FaArrowRight className="arrow" />
             </span>
-          </Link> */}
-              <Link className="btn">
+          </NavLink>
+              {/* <Link className="btn">
                 Get in Touch
                 <span>
                   <FaArrowRight className="arrow" />
                 </span>
-              </Link>
+              </Link> */}
             </div>
             <div className="illustration" data-aos="fade-left">
               <img className="img" src="/4759504.webp" alt="Illustration" />
