@@ -6,9 +6,7 @@ import { motion } from "framer-motion";
 import { HiMenuAlt3 } from "react-icons/hi"; // Icons for mobile menu
 import { IoClose } from "react-icons/io5";
 
-type Props = {};
-
-function Navbar({}: Props) {
+function Navbar() {
   const [isSticky, setIsSticky] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);

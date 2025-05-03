@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import { IoIosArrowDropdown } from "react-icons/io";
-import Header from "@/app/Utils/Header";
 
 const demoProjects = [
   {

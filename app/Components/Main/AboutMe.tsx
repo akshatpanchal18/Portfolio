@@ -2,6 +2,7 @@
 
 import Header from "@/app/Utils/Header";
 import TabSlider from "../TabSlider";
+import Image from "next/image";
 
 export default function AboutMe() {
   return (
@@ -14,7 +15,9 @@ export default function AboutMe() {
         <div className="grid lg:grid-cols-2 grid-cols-1 items-center gap-12">
           {/* Left Image Section */}
           <div className="w-full flex justify-center">
-            <img
+            <Image
+              height={120}
+              width={120}
               className="rounded-xl object-cover max-h-[500px] w-full max-w-md"
               src="/about1.png"
               alt="About"

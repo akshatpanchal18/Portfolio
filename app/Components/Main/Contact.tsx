@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Header from "@/app/Utils/Header";
 import { VscDebugBreakpointLogUnverified } from "react-icons/vsc";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -23,19 +23,25 @@ const Contact = () => {
     setError(""); // Reset error message
     e.preventDefault(); // Prevent default form submission behavior
 
-    emailjs.send(serviceID, templateID, formData, userID).then(
-      (response) => {
-        // console.log("SUCCESS!", response.status, response.text);
-        setIsLoading(false); // Stop loading state
-        setIsSent(true);
-        setError(""); // Reset error message
-        setFormData({ name: "", email: "", message: "" }); // Clear form
-      },
-      (error) => {
-        console.log("FAILED...", error);
+    emailjs
+      .send(serviceID, templateID, formData, userID)
+      .then((response) => {
+        // Check if the response status is 'OK'
+        if (response.status === 200) {
+          setIsLoading(false);
+          setIsSent(true);
+          setError(""); // Reset error message
+          setFormData({ name: "", email: "", message: "" }); // Clear form
+        } else {
+          setIsLoading(false);
+          setError("Failed to send the message. Please try again later.");
+        }
+      })
+      .catch((error) => {
+        console.error("Email sending failed:", error);
+        setIsLoading(false);
         setError("Failed to send the message. Please try again later.");
-      }
-    );
+      });
   };
 
   return (
@@ -54,7 +60,7 @@ const Contact = () => {
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed">
             Feel free to reach out for collaboration, opportunities, or just a
-            tech chat — I'm always open to connecting!
+            tech chat — I&apos;m always open to connecting!
           </p>
 
           <h3 className="text-xl font-semibold text-gray-900">
@@ -63,15 +69,15 @@ const Contact = () => {
           <ul className="space-y-3 text-lg text-gray-800">
             <li className="flex items-center gap-2">
               <VscDebugBreakpointLogUnverified className="text-indigo-600" />{" "}
-              We'll prepare the proposal.
+              We&apos;ll prepare the proposal.
             </li>
             <li className="flex items-center gap-2">
               <VscDebugBreakpointLogUnverified className="text-indigo-600" />{" "}
-              We'll discuss it together.
+              We&apos;ll discuss it together.
             </li>
             <li className="flex items-center gap-2">
               <VscDebugBreakpointLogUnverified className="text-indigo-600" />{" "}
-              Let's start the discussion.
+              Let&apos;s start the discussion.
             </li>
           </ul>
         </div>

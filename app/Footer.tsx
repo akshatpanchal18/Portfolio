@@ -1,14 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import {
-  FaInstagram,
-  FaLinkedin,
-  FaYoutube,
-  FaTwitter,
-  FaEnvelope,
-  FaGithub,
-} from "react-icons/fa";
+import { FaLinkedin, FaEnvelope, FaGithub } from "react-icons/fa";
 import { Link as ScrollLink } from "react-scroll";
 
 export default function Footer() {

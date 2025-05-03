@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { FaCss3Alt, FaDatabase, FaNodeJs, FaReact } from "react-icons/fa";
+import { FaCss3Alt, FaNodeJs, FaReact } from "react-icons/fa";
 import {
   SiMongodb,
   SiRedux,
@@ -125,7 +124,7 @@ export default function ProfileTabs() {
             <div className="bg-white rounded-lg p-5 space-y-4">
               <div>
                 <h3 className="text-lg font-semibold text-gray-800">
-                  Web Developer
+                  Jr.Web Developer
                 </h3>
                 <p className="text-gray-600 text-sm">
                   ENQCODE Technologies <br />

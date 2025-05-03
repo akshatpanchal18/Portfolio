@@ -6,9 +6,7 @@ import HireForm from "../ContactForm";
 import { IoCloseCircle } from "react-icons/io5";
 import { FaDownload } from "react-icons/fa6";
 
-type Props = {};
-
-function HomePage({}: Props) {
+function HomePage() {
   const [popupShow, setPopupShow] = useState(false);
   return (
     <div className="lg:h-screen md:h-[70vh] h-screen flex items-center justify-center px-6">
@@ -16,7 +14,8 @@ function HomePage({}: Props) {
         {/* Left Content */}
         <div className="text-center md:text-left space-y-6">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-            Hii , I'm <span className="text-indigo-600 text-5xl">Akshat</span>
+            Hii , I&apos;m{" "}
+            <span className="text-indigo-600 text-5xl">Akshat</span>
           </h1>
           <h1 className="text-2xl md:text-3xl font-bold text-gray-700">
             Web Devloper / Freelancer
@@ -34,7 +33,7 @@ function HomePage({}: Props) {
               <HiArrowRight className="group-hover:translate-x-1 transition-transform duration-300 ease-in-out" />
             </button>
             <a
-              href="/path/to/your/file.pdf" // Replace with your file's path
+              href="/Akshat_Panchal.pdf" // Replace with your file's path
               download="Akshat Panchal.pdf" // The file name that will be used during download
               className="flex items-center gap-4 group bg-indigo-100 text-black font-bold px-6 py-3 rounded-full hover:shadow-lg hover:bg-indigo-700 hover:text-white transition duration-300 ease-in-out"
             >

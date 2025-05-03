@@ -1,6 +1,5 @@
 import HomePage from "./Components/Main/Home";
 import AboutMe from "./Components/Main/AboutMe";
-import Services from "./Components/Main/Services";
 import Work from "./Components/Main/Work";
 import Contact from "./Components/Main/Contact";
 
