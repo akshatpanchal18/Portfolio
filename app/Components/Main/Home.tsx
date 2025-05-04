@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { HiArrowRight } from "react-icons/hi";
 import HireForm from "../ContactForm";
 import { IoCloseCircle } from "react-icons/io5";
-import { FaDownload } from "react-icons/fa6";
 
 function HomePage() {
   const [popupShow, setPopupShow] = useState(false);
