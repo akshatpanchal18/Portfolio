@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 interface FormData {
   fullName: string;
@@ -15,7 +16,8 @@ export default function HireForm() {
     phone: "",
     hiringModel: "",
   });
-
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [isSent, setIsSent] = useState<boolean>(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,19 +29,42 @@ export default function HireForm() {
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    setIsLoading(true);
+    setError(""); // Reset error message
     e.preventDefault();
-    console.log("Form Data:", formData);
-    setIsSent(true);
+    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "";
+    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "";
+    const userID = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "";
+    // Create a combined message
+    const message = `Phone Number: ${formData.phone}\nHiring Model: ${formData.hiringModel}`;
 
-    setTimeout(() => {
-      setIsSent(false);
-    }, 4000);
+    // Prepare data for EmailJS or API
+    const payload = {
+      name: formData.fullName,
+      email: formData.email,
+      message, // this now includes phone + hiring model
+    };
 
-    setFormData({
-      fullName: "",
-      email: "",
-      phone: "",
-      hiringModel: "",
+    console.log("Form Payload:", payload); // test output
+    emailjs.send(serviceID, templateID, payload, userID).then((response) => {
+      // Check if the response status is 'OK'
+      if (response.status === 200) {
+        setIsLoading(false);
+        setIsSent(true);
+        setError(""); // Reset error message
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          hiringModel: "",
+        });
+        setTimeout(() => {
+          setIsSent(false);
+        }, 5000);
+      } else {
+        setIsLoading(false);
+        setError("Failed to send the message. Please try again later.");
+      }
     });
   };
 
@@ -103,10 +128,11 @@ export default function HireForm() {
               <button
                 key={model}
                 type="button"
+                aria-label="Hiring Model"
                 className={`px-4 py-2 border rounded-lg 
                  ${
                    formData.hiringModel === model
-                     ? "bg-black text-white"
+                     ? "bg-indigo-500 text-white"
                      : "border-gray-300"
                  }
                 `}
@@ -123,13 +149,15 @@ export default function HireForm() {
         {isSent && (
           <p className="text-green-500 text-center font-bold">SENT !!</p>
         )}
+        {error && <p className="text-red-500 text-center">{error}</p>}
 
         {/* Submit Button */}
         <button
           type="submit"
+          aria-label="Submit"
           className="w-full bg-indigo-500 hover:bg-indigo-700 text-white py-3 rounded-lg font-semibold text-lg mt-4"
         >
-          Hire Me
+          {isLoading ? "Loading..." : "Hire Me"}
         </button>
       </form>
     </div>

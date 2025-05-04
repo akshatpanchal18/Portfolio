@@ -14,14 +14,19 @@ const Contact = () => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || ""; // Replace with your service ID
-  const templateID = process.env.TEMPLATE_ID || ""; // Replace with your template ID
-  const userID = process.env.NEXT_PUBLIC_EMAILJS_USER_ID || ""; // Replace with your user ID
+  const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "";
+  const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "";
+  const userID = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "";
+
+  // console.log("Service ID:", serviceID);
+  // console.log("Template ID:", templateID);
+  // console.log("User ID:", userID);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     setIsLoading(true);
     setError(""); // Reset error message
     e.preventDefault(); // Prevent default form submission behavior
+    // console.log(serviceID, templateID, formData, userID);
 
     emailjs
       .send(serviceID, templateID, formData, userID)
@@ -32,6 +37,9 @@ const Contact = () => {
           setIsSent(true);
           setError(""); // Reset error message
           setFormData({ name: "", email: "", message: "" }); // Clear form
+          setTimeout(() => {
+            setIsSent(false);
+          }, 5000);
         } else {
           setIsLoading(false);
           setError("Failed to send the message. Please try again later.");
@@ -126,6 +134,7 @@ const Contact = () => {
             )}
             <button
               type="submit"
+              aria-label="Send Message"
               className="w-full bg-indigo-700 text-white px-3 py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-indigo-800 transition"
             >
               {isLoading ? "Loading..." : "Send Message"}

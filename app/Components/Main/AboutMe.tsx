@@ -16,11 +16,14 @@ export default function AboutMe() {
           {/* Left Image Section */}
           <div className="w-full flex justify-center">
             <Image
-              height={120}
-              width={120}
-              className="rounded-xl object-cover max-h-[500px] w-full max-w-md"
+              height={100}
+              width={100}
               src="/about1.png"
-              alt="About"
+              alt="Tech Illustration"
+              className="rounded-xl w-full max-w-sm md:max-w-md lg:max-w-lg"
+              priority // Ensures it loads quickly for above-the-fold content
+              layout="responsive" // Ensures the image scales properly on different screen sizes
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw" // Dynamically adjusts image size based on screen width
             />
           </div>
 
@@ -31,13 +34,17 @@ export default function AboutMe() {
                 My Journey as a Developer
               </h2>
               <p className="text-gray-500 text-base leading-relaxed">
-                Results-driven Frontend Developer with hands-on experience in
-                developing dynamic and scalable web applications using React.js,
-                Next.js, and TypeScript. Skilled in implementing real-time
-                functionalities, optimizing performance, and ensuring mobile
-                responsiveness. Adept at integrating APIs and writing clean,
-                maintainable code. Passionate about continuous learning and
-                delivering high-quality solutions in collaborative environments.
+                Hi, I&apos;m Akshat Panchal, a results-driven Frontend Developer
+                with a strong passion for crafting dynamic and scalable web
+                applications. With hands-on experience in React.js, Next.js, and
+                TypeScript, I specialize in implementing real-time
+                functionalities, optimizing performance, and ensuring seamless
+                mobile responsiveness. I am proficient in integrating APIs,
+                writing clean and maintainable code, and prioritizing the user
+                experience across all devices. I am always eager to explore new
+                technologies and continuously improve my skill set. My focus is
+                on delivering high-quality, efficient solutions while
+                collaborating effectively in team environments.
               </p>
             </div>
 

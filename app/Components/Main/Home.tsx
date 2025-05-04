@@ -10,7 +10,7 @@ function HomePage() {
   const [popupShow, setPopupShow] = useState(false);
   return (
     <div className="lg:h-screen md:h-[70vh] h-screen flex items-center justify-center px-6">
-      <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div className="max-w-7xl mx-auto px-8 w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         {/* Left Content */}
         <div className="text-center md:text-left space-y-6">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
@@ -26,19 +26,20 @@ function HomePage() {
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start w-max">
             <button
+              aria-label="Hire Me"
               onClick={() => setPopupShow(!popupShow)}
-              className="flex items-center gap-4 group bg-indigo-100 text-black font-bold px-6 py-3 rounded-full hover:shadow-lg hover:bg-indigo-700 hover:text-white transition duration-300 ease-in-out"
+              className="flex w-max items-center gap-4 group bg-indigo-100 text-black font-bold px-6 py-3 rounded-full hover:shadow-lg hover:bg-indigo-700 hover:text-white transition duration-300 ease-in-out"
             >
               Hire Me
               <HiArrowRight className="group-hover:translate-x-1 transition-transform duration-300 ease-in-out" />
             </button>
             <a
+              aria-label="Download Resume"
               href="/Akshat_Panchal.pdf" // Replace with your file's path
               download="Akshat Panchal.pdf" // The file name that will be used during download
               className="flex items-center gap-4 group bg-indigo-100 text-black font-bold px-6 py-3 rounded-full hover:shadow-lg hover:bg-indigo-700 hover:text-white transition duration-300 ease-in-out"
             >
-              Download Resume
-              <FaDownload className="transition-transform duration-300 ease-in-out" />
+              Save Resume
             </a>
           </div>
         </div>
@@ -51,6 +52,9 @@ function HomePage() {
             src="/landingpage.png"
             alt="Tech Illustration"
             className="rounded-xl w-full max-w-sm md:max-w-md lg:max-w-lg"
+            priority // Ensures it loads quickly for above-the-fold content
+            layout="responsive" // Ensures the image scales properly on different screen sizes
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
           />
         </div>
       </div>

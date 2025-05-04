@@ -2,24 +2,13 @@
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
-import { motion } from "framer-motion";
-import { HiMenuAlt3 } from "react-icons/hi"; // Icons for mobile menu
+import { HiMenuAlt3 } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 
 function Navbar() {
   const [isSticky, setIsSticky] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
-  const [isShaking, setIsShaking] = useState(false);
-
-  useEffect(() => {
-    const shakeTimeout = setTimeout(() => {
-      setIsShaking(true);
-      setTimeout(() => setIsShaking(false), 1000); // Stop shaking after 1s
-    }, 5000); // Shake after 5 seconds
-
-    return () => clearTimeout(shakeTimeout);
-  }, []);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -34,7 +23,6 @@ function Navbar() {
     if (mobileMenuOpen) {
       document.addEventListener("mousedown", handleClickOutside);
     }
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -50,36 +38,20 @@ function Navbar() {
 
   const navLinks = [
     { name: "Home", path: "home" },
-    // { name: "About", path: "about" },
     { name: "About Me", path: "about-me" },
     { name: "Work", path: "work" },
-    // { name: "Testimonials", path: "testimonial" },
   ];
 
   return (
     <>
-      {/* <nav
-        className={`transition-all duration-300 z-50 ${
-          isSticky
-            ? "fixed top-0 bg-indigo-100 shadow-sm w-full"
-            : "absolute top-4 left-1/2 -translate-x-1/2 bg-gray-200 max-w-7xl w-full rounded-full shadow-lg px-4 py-2"
-        }`}
-      > */}
-      {/* <nav
-        className={`transition-all duration-300 z-50 xl:w-full 2xl:w-full w-full ${
-          isSticky
-            ? "fixed top-0 bg-indigo-100 shadow-sm"
-            : " bg-gray-200 max-w-7xl mx-auto absolute top-4 left-34 w-full rounded-xl shadow-lg"
-        }`}
-      > */}
       <nav
-        className={`transition-all duration-300 z-50 w-full ${
+        className={`transition-all duration-300 w-full z-50 ${
           isSticky
-            ? "fixed top-0  backdrop-blur-lg shadow-sm py-2"
-            : "absolute top-4 left-0 right-0 mx-auto max-w-7xl bg-indigo-100 rounded-xl shadow-lg px-4 py-2"
+            ? "fixed backdrop-blur-lg shadow-sm py-2"
+            : "mx-auto max-w-7xl bg-indigo-100 rounded-bl-xl rounded-br-xl shadow-lg py-2"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           {/* Logo */}
           <div>
             <Image
@@ -88,91 +60,92 @@ function Navbar() {
               width={100}
               height={100}
               priority
-              className="object-contain w-20 h-20 sm:w-20 sm:h-20 rounded-2xl   "
+              className="object-contain w-20 h-20 rounded-2xl"
             />
           </div>
 
-          {/* Desktop Menu */}
+          {/* Desktop Nav */}
           <div className="hidden md:flex space-x-6">
             {navLinks.map((link, index) => (
               <ScrollLink
-                to={link.path}
-                smooth={true}
-                duration={500}
-                spy={true}
                 key={index}
-                className="text-black text-lg font-semibold cursor-pointer transition-all duration-100 hover:text-indigo-800 hover:font-bold"
+                to={link.path}
+                smooth
+                duration={500}
+                spy
+                className="text-black text-lg font-semibold cursor-pointer hover:text-indigo-800 hover:font-bold transition-all"
               >
                 {link.name}
               </ScrollLink>
             ))}
           </div>
 
-          {/* Contact Button (Visible in Desktop) */}
+          {/* Desktop Button */}
           <div className="hidden md:block">
-            <ScrollLink to="contact" smooth={true} duration={500} spy={true}>
+            <ScrollLink to="contact" smooth duration={500} spy>
               <button
-                className={`bg-indigo-500 text-white font-semibold px-4 py-2 rounded-md animate-bounce${
-                  isShaking ? "animate-shake" : ""
-                }`}
+                aria-label="Contact Me"
+                className={`bg-indigo-500 text-white font-semibold px-4 py-2 rounded-md `}
               >
                 Contact Me
               </button>
             </ScrollLink>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle (ABSOLUTE) */}
           <button
-            className="md:hidden text-black z-50"
+            aria-label="Mobile Menu"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 md:hidden text-black z-50"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <IoClose size={28} /> : <HiMenuAlt3 size={28} />}
           </button>
         </div>
+      </nav>
 
-        {/* Mobile Menu */}
-        {/* <AnimatePresence> */}
-        {mobileMenuOpen && (
-          <motion.div
-            ref={dropdownRef}
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            // exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
-            className="fixed top-0 right-0 h-full w-64 bg-indigo-500 shadow-lg z-40 p-6 flex flex-col items-center space-y-6"
+      {/* Mobile menu - always bg-indigo-900, prevent blur effect */}
+      {mobileMenuOpen && (
+        <div
+          ref={dropdownRef}
+          className={`fixed top-0 right-0 h-full w-64 bg-indigo-900 shadow-lg z-50 p-6 flex flex-col items-start space-y-6 transform transition-transform duration-300 ${
+            isSticky ? "backdrop-blur-none" : ""
+          }`}
+        >
+          {/* Close Button - Ensure it stays on top */}
+          <button
+            aria-label="Close Menu"
+            className="absolute top-4 right-4 z-60 text-white"
+            onClick={() => setMobileMenuOpen(false)}
           >
-            <div className="flex  items-start">
-              <Image
-                src="/logo.png"
-                alt="Logo"
-                width={50}
-                height={50}
-                priority
-                className="object-contain w-16 h-16 sm:w-20 sm:h-20"
-              />
-            </div>
-            <div className="flex flex-col space-y-4 py-4 text-center items-start">
-              {navLinks.map((link, index) => (
-                <ScrollLink
-                  to={link.path}
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  key={index}
-                  className="text-white text-lg font-semibold cursor-pointer transition-all duration-300 hover:text-blue-400"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </ScrollLink>
-              ))}
-              <button className="bg-indigo-500 text-white font-semibold px-4 py-2 rounded-md border border-black mx-auto w-40">
+            <IoClose size={28} />
+          </button>
+
+          <div className="flex flex-col space-y-4 pt-4 text-left w-full">
+            {navLinks.map((link, index) => (
+              <ScrollLink
+                key={index}
+                to={link.path}
+                smooth
+                duration={500}
+                spy
+                className="text-white text-lg font-semibold cursor-pointer hover:text-blue-300 transition-all"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link.name}
+              </ScrollLink>
+            ))}
+            <ScrollLink to="contact" smooth duration={500} spy>
+              <button
+                aria-label="Contact Me"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full px-4 py-2 rounded-md text-white font-semibold bg-indigo-600 hover:bg-indigo-700 shadow-md transition"
+              >
                 Contact Me
               </button>
-            </div>
-          </motion.div>
-        )}
-        {/* </AnimatePresence> */}
-      </nav>
+            </ScrollLink>
+          </div>
+        </div>
+      )}
     </>
   );
 }

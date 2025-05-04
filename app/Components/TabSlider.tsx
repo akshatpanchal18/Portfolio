@@ -36,14 +36,15 @@ export default function ProfileTabs() {
     { icon: <SiTypescript className="text-blue-700" />, name: "TypeScript" },
   ];
   return (
-    <div className="w-full max-w-5xl mx-auto mt-10 flex bg-white rounded-lg overflow-hidden">
+    <div className="w-full max-w-5xl mx-auto mt-10 flex flex-col md:flex-row bg-white rounded-lg overflow-hidden">
       {/* Vertical Tabs */}
-      <div className="w-1/4 bg-gray-100 flex flex-col p-4 space-y-2">
+      <div className="w-full md:w-1/4 bg-gray-100 flex md:flex-col flex-row p-4 space-y-0 md:space-y-2 md:space-x-0 space-x-2 overflow-x-auto md:overflow-x-hidden">
         {tabs.map((tab) => (
           <button
             key={tab}
+            aria-label="Profile Tab"
             onClick={() => setActiveTab(tab)}
-            className={`relative z-10 px-4 py-2 rounded-md transition-all duration-300 text-left text-sm font-medium ${
+            className={`relative z-10 px-4 py-2 rounded-md transition-all duration-300 text-sm font-medium whitespace-nowrap ${
               activeTab === tab
                 ? "bg-indigo-500 text-white"
                 : "text-gray-700 hover:bg-gray-200"
@@ -55,7 +56,7 @@ export default function ProfileTabs() {
       </div>
 
       {/* Content */}
-      <div className="w-3/4 p-6 bg-indigo-50 h-[288px] overflow-y-auto">
+      <div className="w-full md:w-3/4 p-4 md:p-6 bg-indigo-50 h-auto max-h-[400px] md:h-[288px] overflow-y-auto">
         {activeTab === "Skills" && (
           <div>
             <h2 className="text-2xl font-bold mb-4 flex items-center gap-3 text-indigo-600">
