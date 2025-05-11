@@ -7,12 +7,18 @@ import { Link as ScrollLink } from "react-scroll";
 export default function Footer() {
   return (
     <footer className="bg-[#0B0E14] text-white py-6 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto flex flex-col items-center md:flex-row justify-between h-[30vh]">
+      <div className="max-w-7xl mx-auto flex flex-col items-center md:flex-row justify-between lg:h-[30vh] h-[20vh]">
         {/* Logo and Navigation */}
         <div className="flex flex-col md:flex-row items-center md:space-x-10">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <Image src="/logo.png" height={100} width={100} alt="logo" />
+            <Image
+              src="/logo.png"
+              height={100}
+              width={100}
+              alt="logo"
+              className="lg:w-20 lg:h-20 w-12 h-12"
+            />
             {/* <span className="text-lg font-semibold">Akshat</span> */}
           </div>
 
@@ -39,12 +45,12 @@ export default function Footer() {
         </div>
 
         {/* Social Media Icons */}
-        <div className="flex items-center space-x-4 mt-4 md:mt-0">
+        <div className="flex items-center space-x-4  md:mt-0">
           {/* <div className="w-8 h-8 flex items-center justify-center bg-indigo-600 rounded-full cursor-pointer">
             <FaTwitter className="text-white text-sm" />
           </div> */}
           <a
-            href="mailto:akshatpanchal08.com?subject=Proposal for [Project Name] – Let's Get Started&body=I would like to connect with you!"
+            href="mailto:akshatpanchal08.com?subject=Proposal for [Project Name] – Let's Get Started"
             className="w-8 h-8 flex items-center justify-center bg-indigo-600 rounded-full hover:bg-indigo-700"
           >
             <FaEnvelope className="text-white hover:text-white" />

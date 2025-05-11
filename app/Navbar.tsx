@@ -60,7 +60,7 @@ function Navbar() {
               width={100}
               height={100}
               priority
-              className="object-contain w-20 h-20 rounded-2xl"
+              className="object-contain lg:w-20 lg:h-20 w-12 h-12 rounded-2xl"
             />
           </div>
 
